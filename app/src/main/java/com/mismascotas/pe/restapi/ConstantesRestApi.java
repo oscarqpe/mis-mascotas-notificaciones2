@@ -17,7 +17,7 @@ public final class ConstantesRestApi {
     //https://api.instagram.com/v1/users/{user-id}/?access_token=ACCESS-TOKEN
     public static final String KEY_GET_USER_INFO = "users/";
     public static final String KEY_SEARCH_USER = "users/search?q=";
-
+    public static final String MEDIA_LIKE = "media/{mediaid}/likes";
 
     public static final String ROOT_HEROKU = "https://obscure-river-96001.herokuapp.com/";
     public static final String DEVICE_REGISTER = "registrar-usuario";

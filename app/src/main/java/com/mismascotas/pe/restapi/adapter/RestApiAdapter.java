@@ -7,9 +7,15 @@ import com.mismascotas.pe.model.User;
 import com.mismascotas.pe.restapi.ConstantesRestApi;
 import com.mismascotas.pe.restapi.EndpointsApi;
 import com.mismascotas.pe.restapi.deserializador.MascotaDeserializador;
+import com.mismascotas.pe.restapi.deserializador.MediaDeserializador;
+import com.mismascotas.pe.restapi.deserializador.MediaLikeDeserializador;
+import com.mismascotas.pe.restapi.deserializador.MediaLikesDeserializador;
 import com.mismascotas.pe.restapi.deserializador.UserDeserializador;
 import com.mismascotas.pe.restapi.deserializador.UserResponseDeserializador;
+import com.mismascotas.pe.restapi.model.LikeResponse;
 import com.mismascotas.pe.restapi.model.MascotaResponse;
+import com.mismascotas.pe.restapi.model.MediaLikesResponse;
+import com.mismascotas.pe.restapi.model.MediaResponse;
 import com.mismascotas.pe.restapi.model.UserResponse;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -48,6 +54,21 @@ public class RestApiAdapter {
     public Gson userSearchDeserializador() {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(UserResponse.class, new UserResponseDeserializador());
+        return gsonBuilder.create();
+    }
+    public Gson likeMediaDeserializador() {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(LikeResponse.class, new MediaLikeDeserializador());
+        return gsonBuilder.create();
+    }
+    public Gson getMediaLikesDeserializador() {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(MediaLikesResponse.class, new MediaLikesDeserializador());
+        return gsonBuilder.create();
+    }
+    public Gson mediaDeserializador() {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(MediaResponse.class, new MediaDeserializador());
         return gsonBuilder.create();
     }
 }

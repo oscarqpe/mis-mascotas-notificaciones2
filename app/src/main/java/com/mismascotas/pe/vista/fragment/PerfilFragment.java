@@ -91,6 +91,7 @@ public class PerfilFragment extends Fragment implements IPerfilFragmentView{
                 if (userResponse != null)
                     if (userResponse.getUsers().size() > 0) {
                         User user = userResponse.getUsers().get(0);
+                        Log.d("USER ID: ", user.getId());
                         System.out.println(user);
                         Picasso.with(getActivity())
                                 .load(user.getUrlFoto())

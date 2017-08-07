@@ -35,7 +35,7 @@ public class MascotaDeserializador implements JsonDeserializer<MascotaResponse> 
         System.out.println("Size data: " + mascotaResponseData.size());
         for (int i = 0; i < mascotaResponseData.size() ; i++) {
             JsonObject mascotaResponseDataObject = mascotaResponseData.get(i).getAsJsonObject();
-
+            String mediaId      = mascotaResponseDataObject.get("id").getAsString();
             JsonObject userJson     = mascotaResponseDataObject.getAsJsonObject(JsonKeys.USER);
             String id               = userJson.get(JsonKeys.USER_ID).getAsString();
             String nombreCompleto   = userJson.get(JsonKeys.USER_FULLNAME).getAsString();
@@ -52,6 +52,7 @@ public class MascotaDeserializador implements JsonDeserializer<MascotaResponse> 
             mascotaActual.setNombreCompleto(nombreCompleto);
             mascotaActual.setUrlFoto(urlFoto);
             mascotaActual.setLikes(likes);
+            mascotaActual.setMediaId(mediaId);
 
             mascotas.add(mascotaActual);
 
